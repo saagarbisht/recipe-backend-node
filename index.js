@@ -14,11 +14,19 @@ const { json, urlencoded } = pkg
 
 dbConnect();
 
-app.use(cors({
-  origin: "https://recipe-frontend-react-three.vercel.app/", // Change this to match your frontend URL
-  methods: "GET,POST,DELETE,PUT,PATCH",
-  allowedHeaders: "Content-Type,Authorization",
-}));
+const allowedOrigins = ["https://recipe-frontend-react-three.vercel.app"];
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("CORS policy does not allow this origin!"));
+      }
+    },
+    credentials: true,
+  })
+);
 app.use(json());
 app.use(urlencoded({ extended: false }));
 
