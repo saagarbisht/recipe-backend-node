@@ -14,7 +14,7 @@ const { json, urlencoded } = pkg
 
 dbConnect();
 
-const allowedOrigins = ["https://recipe-frontend-react-three.vercel.app"];
+const allowedOrigins = ["https://recipe-frontend-react-three-alpha.vercel.app"];
 app.use(
   cors({
     origin: function (origin, callback) {
