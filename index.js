@@ -15,7 +15,7 @@ const { json, urlencoded } = pkg
 dbConnect();
 
 app.use(cors({
-  origin: "http://localhost:5173", // Change this to match your frontend URL
+  origin: "https://recipe-frontend-react-three.vercel.app/", // Change this to match your frontend URL
   methods: "GET,POST,DELETE,PUT,PATCH",
   allowedHeaders: "Content-Type,Authorization",
 }));
